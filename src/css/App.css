@@ -1,0 +1,150 @@
+.toolbox-list {
+  max-height: 600px;
+  overflow-x: hidden;
+}
+
+.App {
+  padding: 1em;
+}
+
+.singleField {
+  text-transform: capitalize;
+  cursor: grabbing;
+}
+
+.singleField:hover {
+  background: #ccc;
+}
+
+.expand {
+  margin-left: 1px;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.dragActive {
+  background: #ccc;
+}
+
+.single-field {
+  padding: 1ex;
+  margin: 1ex;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.cross {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  vertical-align: center;
+  color: red;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.pull-right {
+  float: right;
+}
+
+.setting {
+  padding: 1em;
+  background: #fff;
+  border-radius: 8px;
+  -webkit-transition: all 2s; /* Safari */
+  transition: all 2s;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+.card-header {
+  /* background-color: #242d2a !important; */
+  color: #222;
+}
+.preview {
+  /* background: radial-gradient(121.87% 121.87% at 50% -21.87%, #FFF7C7 0%, #F6DA2B 100%); */
+  background-color: #0065af;
+  color: white;
+  /* Card/Shadow */
+  margin-left: 10px;
+  box-shadow: 0px 4px 4px rgba(229, 229, 229, 0.8);
+  border-radius: 5px;
+  width: 100px;
+}
+
+.save {
+  background-color: rgb(231, 241, 253);
+  border: 1px solid #0065af;
+  box-sizing: border-box;
+  color: rgb(0, 101, 175);
+  /* Card/Shadow */
+
+  box-shadow: 0px 4px 4px rgba(229, 229, 229, 0.8);
+  border-radius: 5px;
+  width: 100px;
+}
+
+.table {
+  font-size: 12px;
+}
+
+.labels {
+  color: #898b96;
+}
+
+.warna {
+  background: linear-gradient(269.84deg, #59c4e5 31.53%, #afd8bd 97.95%);
+  border-radius: 10px;
+  transform: rotate(-180deg);
+}
+
+.actions {
+  /* transform: rotate(-180deg); */
+  margin-left: 69%;
+  margin-bottom: 2%;
+}
+
+.pull-right {
+  transform: rotate(-180deg);
+}
+.paper {
+  transform: rotate(-180deg);
+  margin-top: 10px;
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.card-body.toolbox-list .list-group {
+  /* display: block; */
+  padding: 10px;
+}
+.card-body.toolbox-list .list-group .list-group-item {
+  display: inline-block;
+  width: 100%;
+  margin: 4px 1%;
+  padding: 10px;
+}
+.btn-dark {
+  background: #929292 !important;
+}
+.nav-tabs {
+  border-bottom: 1px solid rgba(37, 45, 42, 0.8) !important;
+}
+.nav-tabs .nav-link {
+  color: #252d2a;
+  border: 1px solid rgba(37, 45, 42, 0.8) !important;
+}
+.nav-tabs .nav-link.active {
+  border-bottom: 1px solid #fff !important;
+}
+
+.align-right {
+  float: right;
+  cursor: pointer;
+}
