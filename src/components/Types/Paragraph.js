@@ -67,7 +67,7 @@ class Paragraph extends Component {
             <div className="paragraph">
                 <div className="card">
                     <div className="card-header">
-                        <i className="fa fa-paragraph mr-1"></i> Text Area {this.state.title}
+                        <i className="fa fa-paragraph mr-1"></i>  {this.state.title}
                         <span className='align-right' onClick={() => this.props.removeField(this.props.index)}><i className="fa fa-close mr-1"></i></span>
                     </div>
                     <div className="card-body">

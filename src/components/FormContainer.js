@@ -13,6 +13,11 @@ import Time from './Types/Time';
 import Password from './Types/Password';
 import Number from './Types/Number';
 import Checkbox from './Types/Checkbox';
+import Email from './Types/Email';
+import Url from './Types/Url';
+import ImageUpload from './Types/ImageUpload';
+import Range from './Types/Range';
+import Tel from './Types/Tel';
 
 class FormContainer extends Component {
     constructor(props) {
@@ -129,7 +134,7 @@ class FormContainer extends Component {
                                         fontWeight: 'bold',
                                         color: '#aaa',
                                         backgroundColor: '#eee'
-                                    }}>Drag Component</p>
+                                    }}>Drag and Drop Component</p>
                                 </div>
                             }
                         </div>
@@ -283,6 +288,54 @@ class FormContainer extends Component {
                     key={index}
                     removeField={() => this.remove(index)} />
             )
+        } else if (field.toolType === 'EMAIL') {
+            return (
+                <Email changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
+        } else if (field.toolType === 'URL') {
+            return (
+                <Url changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
+        } else if (field.toolType === 'URL') {
+            return (
+                <Url changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
+        } else if (field.toolType === 'FILE') {
+            return (
+                <ImageUpload changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
+        } else if (field.toolType === 'RANGE') {
+            return (
+                <Range changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
+        } else if (field.toolType === 'TEL') {
+            return (
+                <Tel changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
         }
         else if (field.toolType === 'CHECK_BOXES') {
             return (
@@ -388,7 +441,7 @@ class FormContainer extends Component {
             }
         }
 
-        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX"];
+        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL"];
         if (tools.indexOf(data) === -1) {
             this.setState({
                 dragActive: false,
@@ -491,6 +544,81 @@ class FormContainer extends Component {
                     max: 6
                 }
             }
+        } else if (data === 'EMAIL') {
+            meta = {
+                title: 'Email',
+                type: 'Email',
+                toolType: 'EMAIL',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
+        } else if (data === 'URL') {
+            meta = {
+                title: 'Url',
+                type: 'Url',
+                toolType: 'URL',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
+        } else if (data === 'FILE') {
+            meta = {
+                title: 'Image',
+                type: 'Text',
+                toolType: 'FILE',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
+        } else if (data === 'RANGE') {
+            meta = {
+                title: 'Range',
+                type: 'Range',
+                toolType: 'RANGE',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
+        } else if (data === 'TEL') {
+            meta = {
+                title: 'Tel',
+                type: 'Tel',
+                toolType: 'TEL',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
         }
         else if (data === 'DURATION_PICKER') {
             meta = {
@@ -562,7 +690,7 @@ class FormContainer extends Component {
             }
         } else if (data === 'PARAGRAPH') {
             meta = {
-                title: 'Title',
+                title: 'Paragraph',
                 toolType: 'PARAGRAPH',
                 content: '',
                 textColor: '',

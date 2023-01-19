@@ -18,15 +18,15 @@ var InputTypes = [
   "Week",
   "Textarea",
 ];
-class SingleField extends Component {
+class Range extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tab: "",
       title: "",
-      type: "Text",
+      type: "Range",
       name: "",
-      toolType: "SINGLE_FIELD",
+      toolType: "RANGE",
       defaultValue: "",
       placeholder: "",
       description: "",
@@ -62,7 +62,7 @@ class SingleField extends Component {
         this.setState({ description: value });
         break;
       case "DEFAULT_VALUE":
-        this.setState({ defaultValue: value });
+        this.setState({ defaultValue: 0 || value });
         break;
       case "IS_REQUIRED":
         this.setState({
@@ -92,7 +92,7 @@ class SingleField extends Component {
     return (
       <div className="card card-outline-primary">
         <div className="card-header">
-          <i className="fa fa-wpforms mr-1"></i> Text Field {this.state.title}
+          <i className="fa fa-sliders mr-1"></i> {this.state.title}
           <span
             className="align-right"
             onClick={() => this.props.removeField(this.props.index)}
@@ -198,7 +198,8 @@ class SingleField extends Component {
                   <div className="form-group">
                     <label htmlFor="title">Default</label>
                     <input
-                      type="text"
+                      type="range"
+                      color="secondary"
                       value={this.state.defaultValue}
                       onChange={(e) =>
                         this.changeValue("DEFAULT_VALUE", e.target.value)
@@ -206,6 +207,7 @@ class SingleField extends Component {
                       placeholder="Default Value"
                       className="form-control"
                     />
+                    <span>{this.state.defaultValue || 0}</span>
                   </div>
                 </div>
               </div>
@@ -327,4 +329,4 @@ class SingleField extends Component {
   }
 }
 
-export default SingleField;
+export default Range;

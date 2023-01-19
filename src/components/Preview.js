@@ -171,6 +171,69 @@ class Preview extends Component {
                 </p>
             );
             // }
+        } else if (field.toolType === 'EMAIL') {
+            return (
+                <p key={index} className="form-group">
+                    <label className="label" htmlFor={field.title}>{field.title}</label>
+                    <input value={field.defaultValue} placeholder={field.placeholder} className=" form-control"
+                        type='email' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                </p>
+            );
+            // }
+        } else if (field.toolType === 'URL') {
+            return (
+                <p key={index} className="form-group">
+                    <label className="label" htmlFor={field.title}>{field.title}</label>
+                    <input value={field.defaultValue} placeholder={field.placeholder} className=" form-control"
+                        type='url' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                </p>
+            );
+            // }
+        } else if (field.toolType === 'FILE') {
+            if (field.type === 'Textarea') {
+                return (
+                    <div key={index} className="form-group">
+                        <label className="label" htmlFor={field.title}>{field.title}</label>
+                        <textarea value={field.defaultValue} placeholder={field.placeholder} className="form-control"
+                            type={field.type} readOnly={field.validation.isReadOnly}
+                            required={field.validation.isRequired} />
+                    </div>
+                );
+            } else if (field.type === "Time") {
+                return (
+                    <p key={index} className="form-group">
+                        <label className="label" htmlFor={field.title}>{field.title}</label>
+                        <input value={field.defaultValue} placeholder={field.placeholder} className="time_picker form-control"
+                            type='text' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                    </p>
+                );
+            } else {
+                return (
+                    <div key={index} className="form-group">
+                        <label className="label" htmlFor={field.title}>{field.title}</label>
+                        <input value={field.defaultValue} placeholder={field.placeholder} className="form-control"
+                            type={field.type} readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                    </div>
+                );
+            }
+        } else if (field.toolType === 'RANGE') {
+            return (
+                <p key={index} className="form-group">
+                    <label className="label" htmlFor={field.title}>{field.title}</label>
+                    <input value={field.defaultValue} placeholder={field.placeholder} className=" form-control"
+                        type='range' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                </p>
+            );
+            // }
+        } else if (field.toolType === 'TEL') {
+            return (
+                <p key={index} className="form-group">
+                    <label className="label" htmlFor={field.title}>{field.title}</label>
+                    <input value={field.defaultValue} placeholder={field.placeholder} className=" form-control"
+                        type='tel' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                </p>
+            );
+            // }
         }
 
         else if (field.toolType === 'SELECT_FIELD') {

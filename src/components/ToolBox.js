@@ -28,6 +28,26 @@ let Tools = [
         title: 'Checkbox',
         name: 'CHECKBOX',
         icon: 'fa fa-check-square'
+    }, {
+        title: 'Email',
+        name: 'EMAIL',
+        icon: 'fa fa-at'
+    }, {
+        title: 'Url',
+        name: 'URL',
+        icon: 'fa fa-link'
+    }, {
+        title: 'Image',
+        name: 'FILE',
+        icon: 'fa fa-image'
+    }, {
+        title: 'Range',
+        name: 'RANGE',
+        icon: 'fa fa-sliders'
+    }, {
+        title: 'Phone',
+        name: 'TEL',
+        icon: 'fa fa-phone'
     },
     {
         title: 'Drop Down',
@@ -45,7 +65,7 @@ let Tools = [
         icon: 'fa fa-circle'
     },
     {
-        title: 'Text Area',
+        title: 'Paragraph',
         name: 'PARAGRAPH',
         icon: 'fa fa-paragraph'
     },
