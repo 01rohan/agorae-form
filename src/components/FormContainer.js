@@ -18,6 +18,7 @@ import Url from './Types/Url';
 import ImageUpload from './Types/ImageUpload';
 import Range from './Types/Range';
 import Tel from './Types/Tel';
+import Rating from './Types/Rating';
 
 class FormContainer extends Component {
     constructor(props) {
@@ -336,6 +337,14 @@ class FormContainer extends Component {
                     key={index}
                     removeField={() => this.remove(index)} />
             )
+        } else if (field.toolType === 'RATING') {
+            return (
+                <Rating changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
         }
         else if (field.toolType === 'CHECK_BOXES') {
             return (
@@ -441,7 +450,7 @@ class FormContainer extends Component {
             }
         }
 
-        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL"];
+        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL", "RATING"];
         if (tools.indexOf(data) === -1) {
             this.setState({
                 dragActive: false,
@@ -457,6 +466,11 @@ class FormContainer extends Component {
                 defaultValue: '',
                 placeholder: '',
                 description: '',
+                textColor: '',
+                backgroundColor: '',
+                color: '',
+                fontSize: '',
+                align: '',
                 validation: {
                     isReadOnly: false,
                     isRequired: false,
@@ -606,9 +620,24 @@ class FormContainer extends Component {
             }
         } else if (data === 'TEL') {
             meta = {
-                title: 'Tel',
+                title: 'Phone',
                 type: 'Tel',
                 toolType: 'TEL',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
+        } else if (data === 'RATING') {
+            meta = {
+                title: 'Rating',
+                type: 'Rating',
+                toolType: 'RATING',
                 defaultValue: '',
                 placeholder: '',
                 description: '',

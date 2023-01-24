@@ -85,29 +85,15 @@ class Preview extends Component {
                     <div key={index} className="form-group">
                         <label className="label" htmlFor={field.title}>{field.title}</label>
                         <input value={field.defaultValue} placeholder={field.placeholder} className="form-control"
-                            type={field.type} readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
+                            type={field.type} readOnly={field.validation.isReadOnly} required={field.validation.isRequired}
+                            style={{ textAlign: field.align, backgroundColor: field.backgroundColor, color: field.textColor, fontSize: field.fontSize }} />
+                        {/* <p className="p-2" style={{ textAlign: field.align, backgroundColor: field.backgroundColor, color: field.textColor }}>
+                        {field.content}
+                    </p> */}
                     </div>
                 );
             }
         } else if (field.toolType === 'DATE') {
-            // if (field.type === 'Textarea') {
-            //     return (
-            //         <div key={index} className="form-group">
-            //             <label className="label" htmlFor={field.title}>{field.title}</label>
-            //             <textarea value={field.defaultValue} placeholder={field.placeholder} className="form-control"
-            //                 type={field.type} readOnly={field.validation.isReadOnly}
-            //                 required={field.validation.isRequired} />
-            //         </div>
-            //     );
-            // } else if (field.type === "Time") {
-            //     return (
-            //         <p key={index} className="form-group">
-            //             <label className="label" htmlFor={field.title}>{field.title}</label>
-            //             <input value={field.defaultValue} placeholder={field.placeholder} className="time_picker form-control"
-            //                 type='text' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
-            //         </p>
-            //     );
-            // } else {
             return (
                 <p key={index} className="form-group">
                     <label className="label" htmlFor={field.title}>{field.title}</label>
@@ -115,27 +101,8 @@ class Preview extends Component {
                         type='date' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         }
         else if (field.toolType === 'TIME') {
-            // if (field.type === 'Textarea') {
-            //     return (
-            //         <div key={index} className="form-group">
-            //             <label className="label" htmlFor={field.title}>{field.title}</label>
-            //             <textarea value={field.defaultValue} placeholder={field.placeholder} className="form-control"
-            //                 type={field.type} readOnly={field.validation.isReadOnly}
-            //                 required={field.validation.isRequired} />
-            //         </div>
-            //     );
-            // } else if (field.type === "Time") {
-            //     return (
-            //         <p key={index} className="form-group">
-            //             <label className="label" htmlFor={field.title}>{field.title}</label>
-            //             <input value={field.defaultValue} placeholder={field.placeholder} className="time_picker form-control"
-            //                 type='text' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
-            //         </p>
-            //     );
-            // } else {
             return (
                 <p key={index} className="form-group">
                     <label className="label" htmlFor={field.title}>{field.title}</label>
@@ -143,7 +110,6 @@ class Preview extends Component {
                         type='time' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'PASSWORD') {
             return (
                 <p key={index} className="form-group">
@@ -152,7 +118,6 @@ class Preview extends Component {
                         type='password' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'NUMBER') {
             return (
                 <p key={index} className="form-group">
@@ -161,7 +126,6 @@ class Preview extends Component {
                         type='number' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'CHECKBOX') {
             return (
                 <p key={index} className="form-group">
@@ -170,7 +134,6 @@ class Preview extends Component {
                         type='checkbox' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'EMAIL') {
             return (
                 <p key={index} className="form-group">
@@ -179,7 +142,6 @@ class Preview extends Component {
                         type='email' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'URL') {
             return (
                 <p key={index} className="form-group">
@@ -188,7 +150,6 @@ class Preview extends Component {
                         type='url' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'FILE') {
             if (field.type === 'Textarea') {
                 return (
@@ -224,7 +185,6 @@ class Preview extends Component {
                         type='range' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
         } else if (field.toolType === 'TEL') {
             return (
                 <p key={index} className="form-group">
@@ -233,7 +193,29 @@ class Preview extends Component {
                         type='tel' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} />
                 </p>
             );
-            // }
+        } else if (field.toolType === 'RATING') {
+            return (
+                <p key={index} className="form-group">
+                    <label className="label" htmlFor={field.title}>{field.title}</label>
+                    {/* <input value={field.defaultValue} placeholder={field.placeholder} className=" form-control"
+                        type='tel' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} /> */}
+                    <div className="star-rating">
+                        {[...Array(5)].map((star, index) => {
+                            index += 1;
+                            return (
+                                <button
+                                    type="button"
+                                    key={index}
+                                    className={index <= field.defaultValue ? "on" : "off"}
+                                    readOnly={field.validation.isReadOnly} required={field.validation.isRequired}
+                                >
+                                    <span className="star">&#9733;</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </p>
+            );
         }
 
         else if (field.toolType === 'SELECT_FIELD') {
@@ -321,7 +303,7 @@ class Preview extends Component {
             return (
                 <div key={index} className="paragraph">
                     <label className="label" hidden={field.title === ""} >{field.title}</label>
-                    <p className="p-2" style={{ textAlign: field.align, backgroundColor: field.backgroundColor, color: field.textColor }}>
+                    <p className="p-2" style={{ textAlign: field.align, fontSize: field.fontSize, backgroundColor: field.backgroundColor, color: field.textColor }}>
                         {field.content}
                     </p>
                 </div>

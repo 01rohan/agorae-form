@@ -13,7 +13,7 @@ class Paragraph extends Component {
             textColor: '#000000',
             backgroundColor: '#cccccc',
             color: '',
-            fontSize: '10',
+            fontSize: '',
             align: 'center'
         }
     }
@@ -159,9 +159,12 @@ class Paragraph extends Component {
                                                 value={this.state.fontSize}
                                                 onChange={(e) => this.changeValue("FONT_SIZE", e.target.value)}
                                                 className="form-control">
+                                                <option selected={true} disabled value=''>
+                                                    {'Select Font Size'}
+                                                </option>
                                                 {
                                                     this.fontSizes().map((size) => {
-                                                        return <option key={size} value={size}>{size} pt</option>
+                                                        return <option key={size} value={size + 'px'}>{size} px</option>
                                                     })
                                                 }
                                             </select>

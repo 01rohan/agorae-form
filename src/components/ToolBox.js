@@ -48,6 +48,10 @@ let Tools = [
         title: 'Phone',
         name: 'TEL',
         icon: 'fa fa-phone'
+    }, {
+        title: 'Rating',
+        name: 'RATING',
+        icon: 'fa fa-star'
     },
     {
         title: 'Drop Down',
