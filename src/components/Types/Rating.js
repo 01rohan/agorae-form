@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-var InputTypes = [
-    "Checkbox",
-    "Color",
-    "Date",
-    "Email",
-    "File",
-    "Month",
-    "Number",
-    "Password",
-    "Radio",
-    "Range",
-    "Search",
-    "Tel",
-    "Text",
-    "Time",
-    "Url",
-    "Week",
-    "Textarea",
-];
+// var InputTypes = [
+//     "Checkbox",
+//     "Color",
+//     "Date",
+//     "Email",
+//     "File",
+//     "Month",
+//     "Number",
+//     "Password",
+//     "Radio",
+//     "Range",
+//     "Search",
+//     "Tel",
+//     "Text",
+//     "Time",
+//     "Url",
+//     "Week",
+//     "Textarea",
+// ];
 class Rating extends Component {
     constructor(props) {
         super(props);
@@ -208,7 +208,8 @@ class Rating extends Component {
                                                         // onMouseLeave={() => this.changeValue("HOVER", index)}
                                                         onDoubleClick={() => this.changeValue("DEFAULT_VALUE", 0)}
                                                     >
-                                                        <span className="star">&#9733;</span>
+                                                        {/* <span className="star">&#9733;</span> */}
+                                                        <span className="star"><i className="fa fa-star"></i></span>
                                                     </button>
                                                 );
                                             })}

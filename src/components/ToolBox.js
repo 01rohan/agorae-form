@@ -54,6 +54,11 @@ let Tools = [
         icon: 'fa fa-star'
     },
     {
+        title: 'ScaleRating',
+        name: 'SCALERATING',
+        icon: 'fa fa-line-chart'
+    },
+    {
         title: 'Drop Down',
         name: 'SELECT_FIELD',
         icon: 'fa fa-chevron-circle-down'

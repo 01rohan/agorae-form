@@ -18,7 +18,7 @@ import React, { Component } from "react";
 //     "Week",
 //     "Textarea",
 // ];
-class Tel extends Component {
+class ScaleRating extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +26,7 @@ class Tel extends Component {
             title: "",
             type: "Text",
             name: "",
-            toolType: "TEL",
+            toolType: "SCALERATING",
             defaultValue: "",
             placeholder: "",
             description: "",
@@ -92,7 +92,7 @@ class Tel extends Component {
         return (
             <div className="card card-outline-primary">
                 <div className="card-header">
-                    <i className="fa fa-phone mr-1"></i> {this.state.title}
+                    <i className="fa fa-line-chart mr-1"></i> {this.state.title}
                     <span
                         className="align-right"
                         onClick={() => this.props.removeField(this.props.index)}
@@ -175,42 +175,7 @@ class Tel extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
-                                {/* <div className="col-6">
-                                    <div className="form-group">
-                                        <label htmlFor="title">Type</label>
-                                        <select
-                                            onChange={(e) => this.changeValue("TYPE", e.target.value)}
-                                            className="form-control"
-                                            defaultValue={this.state.type}
-                                        >
-                                            {InputTypes.map((type) => {
-                                                return (
-                                                    <option value={type} key={type}>
-                                                        {type}
-                                                    </option>
-                                                );
-                                            })}
-                                        </select>
-                                    </div>
-                                </div> */}
-                                <div className="col-6">
-                                    <div className="form-group">
-                                        <label htmlFor="title">Default</label>
-                                        <input
-                                            type="tel"
-                                            pattern="[0-9]{10}"
-                                            value={this.state.defaultValue}
-                                            onChange={(e) =>
-                                                this.changeValue("DEFAULT_VALUE", e.target.value)
-                                            }
-                                            placeholder="Default Value"
-                                            className="form-control"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <hr />
+
 
                             <div className="row">
                                 <div className="col-6">
@@ -227,18 +192,29 @@ class Tel extends Component {
                                         />
                                     </div>
                                 </div>
-                                <div className="col-6">
+                            </div>
+                            <div className="row">
+                                <div className="col-8">
                                     <div className="form-group">
-                                        <label htmlFor="title">Placeholder</label>
-                                        <input
-                                            type="text"
-                                            value={this.state.placeholder}
-                                            onChange={(e) =>
-                                                this.changeValue("PLACEHOLDER", e.target.value)
-                                            }
-                                            placeholder="Field Placeholder"
-                                            className="form-control"
-                                        />
+                                        <label htmlFor="title">Default</label>
+                                        <div className="star-rating">
+                                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star, index) => {
+                                                index += 1;
+                                                return (
+                                                    <button
+                                                        type="button"
+                                                        key={index}
+                                                        className={index <= this.state.defaultValue ? "on" : "off"}
+                                                        onClick={() => this.changeValue("DEFAULT_VALUE", index)}
+                                                        // onMouseEnter={() => this.changeValue("HOVER", index)}
+                                                        // onMouseLeave={() => this.changeValue("HOVER", index)}
+                                                        onDoubleClick={() => this.changeValue("DEFAULT_VALUE", 0)}
+                                                    >
+                                                        <span className="star">{star}</span>
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -328,4 +304,4 @@ class Tel extends Component {
     }
 }
 
-export default Tel;
+export default ScaleRating;

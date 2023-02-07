@@ -8,6 +8,10 @@
     "url": "git+https://github.com/saravananangu/react-drag-drop-form-builder.git"
   },
   "dependencies": {
+    "@cogent-labs/react-rating-component": "^1.1.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.8",
     "bootstrap": "4.3.1",
     "ckeditor5": "^30.0.0",
     "font-awesome": "^4.7.0",
@@ -20,11 +24,14 @@
     "react": "^16.2.0",
     "react-bootstrap": "1.0.0-beta.14",
     "react-dom": "^16.2.0",
+    "react-rating": "^2.0.5",
+    "react-rating-stars-component": "^2.2.0",
     "react-redux-form": "^1.16.14",
     "react-router-dom": "5.0.1",
     "react-scripts": "1.1.1",
     "react-simple-image-slider": "^2.4.1",
     "react-slideshow-image": "^4.2.0",
+    "react-tabs": "^2.2.2",
     "reactstrap": "^8.10.0",
     "styled-components": "4.3.2",
     "web-vitals": "1.0.1"

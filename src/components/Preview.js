@@ -87,9 +87,6 @@ class Preview extends Component {
                         <input value={field.defaultValue} placeholder={field.placeholder} className="form-control"
                             type={field.type} readOnly={field.validation.isReadOnly} required={field.validation.isRequired}
                             style={{ textAlign: field.align, backgroundColor: field.backgroundColor, color: field.textColor, fontSize: field.fontSize }} />
-                        {/* <p className="p-2" style={{ textAlign: field.align, backgroundColor: field.backgroundColor, color: field.textColor }}>
-                        {field.content}
-                    </p> */}
                     </div>
                 );
             }
@@ -197,8 +194,6 @@ class Preview extends Component {
             return (
                 <p key={index} className="form-group">
                     <label className="label" htmlFor={field.title}>{field.title}</label>
-                    {/* <input value={field.defaultValue} placeholder={field.placeholder} className=" form-control"
-                        type='tel' readOnly={field.validation.isReadOnly} required={field.validation.isRequired} /> */}
                     <div className="star-rating">
                         {[...Array(5)].map((star, index) => {
                             index += 1;
@@ -209,7 +204,29 @@ class Preview extends Component {
                                     className={index <= field.defaultValue ? "on" : "off"}
                                     readOnly={field.validation.isReadOnly} required={field.validation.isRequired}
                                 >
-                                    <span className="star">&#9733;</span>
+                                    {/* <span className="star">&#9733;</span> */}
+                                    <span className="star"><i className="fa fa-star"></i></span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </p>
+            );
+        } else if (field.toolType === 'SCALERATING') {
+            return (
+                <p key={index} className="form-group">
+                    <label className="label" htmlFor={field.title}>{field.title}</label>
+                    <div className="star-rating">
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star, index) => {
+                            index += 1;
+                            return (
+                                <button
+                                    type="button"
+                                    key={index}
+                                    className={index <= field.defaultValue ? "on" : "off"}
+                                    readOnly={field.validation.isReadOnly} required={field.validation.isRequired}
+                                >
+                                    <span className="star">{star}</span>
                                 </button>
                             );
                         })}

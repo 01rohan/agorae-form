@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-var InputTypes = [
-  "Checkbox",
-  "Color",
-  "Date",
-  "Email",
-  "File",
-  "Month",
-  "Number",
-  "Password",
-  "Radio",
-  "Range",
-  "Search",
-  "Tel",
-  "Text",
-  "Time",
-  "Url",
-  "Week",
-  "Textarea",
-];
+// var InputTypes = [
+//   "Checkbox",
+//   "Color",
+//   "Date",
+//   "Email",
+//   "File",
+//   "Month",
+//   "Number",
+//   "Password",
+//   "Radio",
+//   "Range",
+//   "Search",
+//   "Tel",
+//   "Text",
+//   "Time",
+//   "Url",
+//   "Week",
+//   "Textarea",
+// ];
 class SingleField extends Component {
   constructor(props) {
     super(props);

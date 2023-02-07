@@ -3,7 +3,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: __dirname + "/build",
-        filename : "bundle.js"
+        filename: "bundle.js"
     },
     module: {
         rules: [
@@ -12,16 +12,16 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets:[ 'es2015', 'react', 'stage-2' ]
+                    presets: ['es2015', 'react', 'stage-2']
                 }
             },
             {
                 test: /\.css$/,
-                loader : ['style-loader', 'css-loader']
+                loader: ['style-loader', 'css-loader']
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|jpeg)$/,
-                use:{
+                use: {
                     loader: "url-loader",
                 }
             }

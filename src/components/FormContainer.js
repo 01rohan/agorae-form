@@ -7,8 +7,6 @@ import Preview from './Preview';
 import RadioButtons from "./Types/RadioButtons";
 import Paragraph from "./Types/Paragraph";
 import DurationPicker from "./Types/DurationPicker";
-import { Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import Time from './Types/Time';
 import Password from './Types/Password';
 import Number from './Types/Number';
@@ -19,6 +17,7 @@ import ImageUpload from './Types/ImageUpload';
 import Range from './Types/Range';
 import Tel from './Types/Tel';
 import Rating from './Types/Rating';
+import ScaleRating from './Types/ScaleRating';
 
 class FormContainer extends Component {
     constructor(props) {
@@ -104,20 +103,6 @@ class FormContainer extends Component {
                 </div>
 
                 <div className="card card-default" style={this.ifDuplicated()}>
-                    {/* <div className="card-header warna">
-                        <Link className="edits" > <span className="pull-left paper">
-                            <i class="far fa-edit"></i>  Edit Paper
-                            </span> </Link>
-                        <span className="pull-right">
-                            <Input type="select" name="font" id="font" placeholder="Nunito">
-                                <option>Nunito</option>
-                                <option>Nunito</option>
-                                <option>Nunito</option>
-                                <option>Nunito</option>
-                                <option>Nunito</option>
-                            </Input>
-                        </span>
-                    </div> */}
                     <div className={this.state.dragActive ? 'dragActive card-body' : 'card-body'}>
 
                         <div ref={(l) => this.tooList = l} className="list-group">
@@ -345,6 +330,14 @@ class FormContainer extends Component {
                     key={index}
                     removeField={() => this.remove(index)} />
             )
+        } else if (field.toolType === 'SCALERATING') {
+            return (
+                <ScaleRating changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    index={index}
+                    key={index}
+                    removeField={() => this.remove(index)} />
+            )
         }
         else if (field.toolType === 'CHECK_BOXES') {
             return (
@@ -450,7 +443,7 @@ class FormContainer extends Component {
             }
         }
 
-        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL", "RATING"];
+        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL", "RATING", "SCALERATING"];
         if (tools.indexOf(data) === -1) {
             this.setState({
                 dragActive: false,
@@ -638,6 +631,21 @@ class FormContainer extends Component {
                 title: 'Rating',
                 type: 'Rating',
                 toolType: 'RATING',
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                }
+            }
+        } else if (data === 'SCALERATING') {
+            meta = {
+                title: 'ScaleRating',
+                type: 'ScaleRating',
+                toolType: 'SCALERATING',
                 defaultValue: '',
                 placeholder: '',
                 description: '',
