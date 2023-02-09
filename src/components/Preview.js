@@ -342,6 +342,48 @@ class Preview extends Component {
                     </div>
                 </div>
             )
+        } else if (field.toolType === 'BULLET_LIST') {
+            return (
+                <div key={index} className="radios">
+                    <label className="label" htmlFor="">{field.title}</label>
+                    <div className="radios-buttons">
+                        {
+                            field.radios.map((radio, index) => {
+                                return (
+                                    <div key={index} className={field.inline ? "form-check-inline" : "form-check"}>
+                                        <span className="star icon"><i className="fa fa-circle"></i></span>
+                                        <label className="form-check-label" htmlFor={radio.value}>
+                                            {radio.title}
+                                        </label>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <br />
+                </div>
+            )
+        } else if (field.toolType === 'DIVIDER') {
+            return (<hr />
+                // <div key={index} className="radios">
+                //     <label className="label" htmlFor="">{field.title}</label>
+                //     <div className="radios-buttons">
+                //         {
+                //             field.radios.map((radio, index) => {
+                //                 return (
+                //                     <div key={index} className={field.inline ? "form-check-inline" : "form-check"}>
+                //                         <span className="star icon"><i className="fa fa-circle"></i></span>
+                //                         <label className="form-check-label" htmlFor={radio.value}>
+                //                             {radio.title}
+                //                         </label>
+                //                     </div>
+                //                 )
+                //             })
+                //         }
+                //     </div>
+                //     <br />
+                // </div>
+            )
         }
     }
 }

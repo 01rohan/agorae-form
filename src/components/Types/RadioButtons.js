@@ -85,7 +85,7 @@ class RadioButtons extends Component {
         return (
             <div className="card card-outline-primary">
                 <div className="card-header">
-                    <i className="fa fa-circle mr-1"></i> Radio Buttons {this.state.title}
+                    <i className="fa fa-dot-circle-o mr-1"></i> Single Choice {this.state.title}
                     <span className='align-right' onClick={() => this.props.removeField(this.props.index)}><i className="fa fa-close mr-1"></i></span>
                 </div>
                 <div className="card-body">
@@ -130,8 +130,8 @@ class RadioButtons extends Component {
                                     onChange={(e) => this.changeValue("TITLE", e.target.value)}
                                     placeholder='Field Label Title' className='form-control' />
                             </div>
-                            <hr />
-                            <div className="form-check-inline">
+                            {/* <hr /> */}
+                            {/* <div className="form-check-inline">
                                 <input
                                     value={this.state.multiple}
                                     onChange={(e) => this.changeValue("MULTIPLE", e.target.checked)}
@@ -139,7 +139,7 @@ class RadioButtons extends Component {
                                 <label className="form-check-label" htmlFor="isRequired">
                                     Multiple Selection
                                 </label>
-                            </div>
+                            </div> */}
                             <div className="form-check-inline">
                                 <input
                                     value={this.state.inline}
@@ -255,7 +255,7 @@ class RadioButtons extends Component {
                                                                 <td style={{ verticalAlign: 'middle' }}>
                                                                     <input
                                                                         name='default'
-                                                                        value={this.state.defaultValue}
+                                                                        value={this.state.radios[index].value}
                                                                         onChange={(e) => this.changeOptionValue(index, e.target.checked, "DEFAULT_VALUE")}
                                                                         id={checkbox.value}
                                                                         type='radio' />

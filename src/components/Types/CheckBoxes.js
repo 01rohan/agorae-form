@@ -71,7 +71,7 @@ class CheckBoxes extends Component {
         return (
             <div className="card card-outline-primary">
                 <div className="card-header">
-                    <i className="fa fa-plus mr-1"></i> Check Boxes {this.state.title}
+                    <i className="fa fa-plus mr-1"></i> Multiple Choice {this.state.title}
                     <span className='align-right' onClick={() => this.props.removeField(this.props.index)}><i className="fa fa-close mr-1"></i></span>
                 </div>
                 <div className="card-body">
@@ -203,7 +203,7 @@ class CheckBoxes extends Component {
                                                 this.state.checkBoxes.map((checkbox, index) => {
                                                     return (
                                                         <tr key={index}>
-                                                            <td>
+                                                            <td style={{ verticalAlign: 'middle' }}>
                                                                 <div className="checkbox">
                                                                     <input
                                                                         autoFocus={true}
@@ -232,7 +232,7 @@ class CheckBoxes extends Component {
                                                                     className='form-control' />
                                                             </td>
                                                             <td style={{ verticalAlign: 'middle' }}>
-                                                                <span onClick={() => this.removeOption(index)} className="cross pull-right">x</span>
+                                                                <span onClick={() => this.removeOption(index)}><i className="fa fa-close" style={{ color: "red", cursor: "pointer" }}></i></span>
                                                             </td>
                                                         </tr>
                                                     )
