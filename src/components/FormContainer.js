@@ -18,6 +18,9 @@ import Range from './Types/Range';
 import Tel from './Types/Tel';
 import Rating from './Types/Rating';
 import ScaleRating from './Types/ScaleRating';
+import BulletList from './Types/BulletList';
+import Divider from './Types/Divider';
+import ImageSlider from './Types/ImageSlider';
 
 class FormContainer extends Component {
     constructor(props) {
@@ -290,15 +293,17 @@ class FormContainer extends Component {
                     key={index}
                     removeField={() => this.remove(index)} />
             )
-        } else if (field.toolType === 'URL') {
-            return (
-                <Url changeState={(e, index) => this.changeChildState(e, index)}
-                    field={field}
-                    index={index}
-                    key={index}
-                    removeField={() => this.remove(index)} />
-            )
-        } else if (field.toolType === 'FILE') {
+        }
+        // else if (field.toolType === 'URL') {
+        //     return (
+        //         <Url changeState={(e, index) => this.changeChildState(e, index)}
+        //             field={field}
+        //             index={index}
+        //             key={index}
+        //             removeField={() => this.remove(index)} />
+        //     )
+        // } 
+        else if (field.toolType === 'FILE') {
             return (
                 <ImageUpload changeState={(e, index) => this.changeChildState(e, index)}
                     field={field}
@@ -373,6 +378,34 @@ class FormContainer extends Component {
                     key={index}
                     removeField={() => this.remove(index)} />
             )
+        } else if (field.toolType === 'BULLET_LIST') {
+            return (
+                <BulletList
+                    changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    key={index}
+                    index={index}
+                    removeField={() => this.remove(index)} />
+            )
+        } else if (field.toolType === 'DIVIDER') {
+            return (
+                <Divider
+                    changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    key={index}
+                    index={index}
+                    removeField={() => this.remove(index)} />
+            )
+        }
+        else if (field.toolType === 'IMAGE_SLIDER') {
+            return (
+                <ImageSlider
+                    changeState={(e, index) => this.changeChildState(e, index)}
+                    field={field}
+                    key={index}
+                    index={index}
+                    removeField={() => this.remove(index)} />
+            )
         }
     }
 
@@ -443,7 +476,7 @@ class FormContainer extends Component {
             }
         }
 
-        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL", "RATING", "SCALERATING"];
+        let tools = ["SINGLE_FIELD", "SELECT_FIELD", "CHECK_BOXES", "RADIO_BUTTONS", "PARAGRAPH", "DURATION_PICKER", "DATE", "TIME", "PASSWORD", "NUMBER", "CHECKBOX", "EMAIL", "URL", "FILE", "RANGE", "TEL", "RATING", "SCALERATING", "BULLET_LIST", "DIVIDER", "IMAGE_SLIDER"];
         if (tools.indexOf(data) === -1) {
             this.setState({
                 dragActive: false,
@@ -735,6 +768,57 @@ class FormContainer extends Component {
                 color: '',
                 fontSize: '',
                 align: ''
+            }
+        } else if (data === 'BULLET_LIST') {
+            meta = {
+                title: 'Title',
+                toolType: 'BULLET_LIST',
+                multiple: false,
+                inline: false,
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                },
+                radios: []
+            }
+        } else if (data === 'DIVIDER') {
+            meta = {
+                title: 'Title',
+                toolType: 'DIVIDER',
+                multiple: false,
+                inline: false,
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                },
+                radios: []
+            }
+        } else if (data === 'IMAGE_SLIDER') {
+            meta = {
+                title: 'Title',
+                toolType: 'IMAGE_SLIDER',
+                multiple: false,
+                inline: false,
+                defaultValue: '',
+                placeholder: '',
+                description: '',
+                validation: {
+                    isReadOnly: false,
+                    isRequired: false,
+                    min: 6,
+                    max: 6
+                },
+                radios: []
             }
         }
         let fields = this.state.fields;

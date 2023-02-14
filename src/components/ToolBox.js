@@ -69,9 +69,9 @@ let Tools = [
         icon: 'fa fa-plus'
     },
     {
-        title: 'Radio Buttons',
+        title: 'Single Choice',
         name: 'RADIO_BUTTONS',
-        icon: 'fa fa-circle'
+        icon: 'fa fa-dot-circle-o'
     },
     {
         title: 'Paragraph',
@@ -82,6 +82,21 @@ let Tools = [
         title: 'Duration Picker',
         name: 'DURATION_PICKER',
         icon: 'fa fa-calendar'
+    },
+    {
+        title: 'Bullet List',
+        name: 'BULLET_LIST',
+        icon: 'fa fa-list'
+    },
+    {
+        title: 'Divider',
+        name: 'DIVIDER',
+        icon: 'fas fa-divide'
+    },
+    {
+        title: 'imageSlider',
+        name: 'IMAGE_SLIDER',
+        icon: 'fa fa-sliders'
     },
 
 ];
